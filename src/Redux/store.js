@@ -18,7 +18,6 @@ const rootReducer = combineReducers({
   contacts: contactsReducer,
 });
 
-
 const persistConfig = {
   key: LOCALSTORAGE_KEY,
   storage,
