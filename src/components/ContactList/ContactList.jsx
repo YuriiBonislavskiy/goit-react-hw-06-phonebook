@@ -7,6 +7,8 @@ const ContactsList = () => {
   const contacts = useSelector((state) => state.phonebook.contacts);
   const filter = useSelector(state => state.phonebook.filter);
 
+  console.log(contacts)
+
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
