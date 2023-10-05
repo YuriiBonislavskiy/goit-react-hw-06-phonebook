@@ -11,8 +11,10 @@ export const ContactForm = () => {
     number: '',
   };
 
-    const dispatch = useDispatch();
-    const contacts = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.phonebook.contacts);
+
+  // console.log(addContact())
 
   const schema = yup.object().shape({
     name: yup
@@ -35,7 +37,7 @@ export const ContactForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
-console.log(name)
+    console.log(name);
     if (contacts.findIndex(contact => contact.name === name) >= 0) {
       alert(`${name} is already in contacts`);
       return;
@@ -45,7 +47,7 @@ console.log(name)
       name: name,
       number: number,
     };
-        dispatch(addContact(newContact));
+    dispatch(addContact(newContact));
 
     resetForm();
   };
