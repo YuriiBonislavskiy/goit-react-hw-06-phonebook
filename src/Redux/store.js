@@ -14,10 +14,6 @@ import {
 
 import { LOCALSTORAGE_KEY } from 'constants/constants';
 
-// const rootReducer = combineReducers({
-//   phonebook: contactsSlice.reducer,
-// });
-
 const persistConfig = {
   key: LOCALSTORAGE_KEY,
   storage,
@@ -27,7 +23,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, contactsSlice.reducer);
 
 export const store = configureStore({
-  reducer: {phonebook: persistedReducer}, 
+  reducer: { contacts: persistedReducer },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

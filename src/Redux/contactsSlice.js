@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 // import baseContacts from 'data/contacts.json';
 
 export const contactsSlice = createSlice({
-  name:  "phonebook",
+  name: 'contacts',
   initialState: {
-    contacts:[],
-    filter: ''
+    contacts: [],
+    filter: '',
   },
   reducers: {
     addContact(state, { payload }) {
