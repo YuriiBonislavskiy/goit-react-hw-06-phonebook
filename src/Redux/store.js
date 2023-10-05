@@ -14,8 +14,6 @@ import {
 
 import { LOCALSTORAGE_KEY } from 'constants/constants';
 
-console.log(storage.getItem(LOCALSTORAGE_KEY));
-
 const persistConfig = {
   key: LOCALSTORAGE_KEY,
   storage,
