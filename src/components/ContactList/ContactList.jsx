@@ -4,8 +4,8 @@ import ContactsListItem from '../ContactsListItem';
 
 const ContactsList = () => {
 
-  const contacts = useSelector(state => state.contacts.contacts);
-  const filter = useSelector(state => state.contacts.filter);
+  const contacts = useSelector(state => state.contacts);
+  const filter = useSelector(state => state.filter);
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();

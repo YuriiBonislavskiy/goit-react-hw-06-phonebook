@@ -1,8 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {contactsSlice} from './contactsSlice';
-import storage from 'redux-persist/lib/storage';
+import { phonebookPersistedReducer } from './phonebookSlice';
 import {
-  persistReducer,
   persistStore,
   FLUSH,
   REHYDRATE,
@@ -12,18 +10,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-import { LOCALSTORAGE_KEY } from 'constants/constants';
-
-const persistConfig = {
-  key: LOCALSTORAGE_KEY,
-  storage,
-  blacklist: ['filter'],
-};
-
-const persistedReducer = persistReducer(persistConfig, contactsSlice.reducer);
-
 export const store = configureStore({
-  reducer: { contacts: persistedReducer },
+  reducer: phonebookPersistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

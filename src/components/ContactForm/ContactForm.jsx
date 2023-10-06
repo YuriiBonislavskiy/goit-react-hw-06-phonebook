@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'Redux/contactsSlice';
+import { addContact } from 'Redux/phonebookSlice';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
@@ -12,7 +12,7 @@ export const ContactForm = () => {
   };
 
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(state => state.contacts);
 
   // console.log(addContact())
 
@@ -37,7 +37,6 @@ export const ContactForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
-    console.log(name);
     if (contacts.findIndex(contact => contact.name === name) >= 0) {
       alert(`${name} is already in contacts`);
       return;
