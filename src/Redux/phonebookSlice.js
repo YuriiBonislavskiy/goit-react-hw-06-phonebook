@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import {persistReducer} from 'redux-persist';
-
+// import baseContacts from 'data/contacts.json';
 import { LOCALSTORAGE_KEY } from 'constants/constants';
+
 
 export const phonebookSlice = createSlice({
   name: 'phonebook',
   initialState: {
-    contacts: [],
+    // contacts: baseContacts,
+    contacts:[],
     filter: '',
   },
 
@@ -16,10 +18,10 @@ export const phonebookSlice = createSlice({
       state.contacts.push(payload);
     },
     deleteContact(state, { payload }) {
-     state.contacts = state.contacts.filter(contact => contact.id !== payload);
+      state.contacts = state.contacts.filter(contact => contact.id !== payload);
     },
     setFilter(state, { payload }) {
-       state.filter = payload;
+      state.filter = payload;
     },
   },
 });
